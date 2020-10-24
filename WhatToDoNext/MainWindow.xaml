@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition  Height="*"/>
             <RowDefinition  Height="4*"/>
+            <RowDefinition  Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -21,7 +22,16 @@
             <Button Grid.Column="1" x:Name="addToDoButton" Click="addToDoButton_Click">+</Button>
             <TextBox Grid.Column="0" x:Name="addToDoTextBox"></TextBox>
         </Grid>
-
+        
         <ListBox x:Name="toDoListBox" Grid.Row="1"></ListBox>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name="deleteItemButton" Grid.Column="1" Click="deleteItemButton_Click">Löschen</Button>
+        </Grid>
     </Grid>
 </Window>

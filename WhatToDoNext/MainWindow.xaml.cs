@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Drawing;
 
 namespace WhatToDoNext
 {
@@ -20,6 +12,7 @@ namespace WhatToDoNext
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<CheckBox> checkBoxes = new List<CheckBox>();
 
         public MainWindow()
         {
@@ -28,17 +21,54 @@ namespace WhatToDoNext
 
         private void addToDoButton_Click(object sender, RoutedEventArgs e)
         {
-            String text = addToDoTextBox.Text;
-            if (!text.Equals(""))
+            String task = addToDoTextBox.Text;
+            if (!task.Equals(""))
             {
-                ToDo toDo = new ToDo(addToDoTextBox.Text);
-                addToDoToListBox(toDo);
+                ToDo toDo = new ToDo();
+                toDo.Name = task;
+                addToCheckBox(toDo);
+                addToDoTextBox.Text = "";
             }
         }
 
-        private void addToDoToListBox(ToDo toDo)
+        private void addToCheckBox(ToDo toDo)
         {
-            toDoListBox.Items.Add(toDo.getName());
+            CheckBox checkBox = new CheckBox();
+            checkBox.Content = toDo.Name;
+            checkBox.Click += new RoutedEventHandler(checkBox_Changed);
+            checkBoxes.Add(checkBox);
+            refreshToDoListBox();
+        }
+
+        private void checkBox_Changed(object sender, RoutedEventArgs e)
+        {
+            // strikethroug or colorchange comes here!
+        }
+
+        private void refreshToDoListBox()
+        {
+            toDoListBox.Items.Clear();
+            foreach(CheckBox checkBox in checkBoxes)
+            {
+                toDoListBox.Items.Add(checkBox);
+            }
+        }
+
+        private void deleteItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<CheckBox> checkBoxesToDelete = new List<CheckBox>();
+            foreach(CheckBox checkBox in checkBoxes)
+            {
+                if(checkBox.IsChecked == true)
+                {
+                    checkBoxesToDelete.Add(checkBox);
+                }
+            }
+            foreach(CheckBox checkBox in checkBoxesToDelete)
+            {
+                checkBoxes.Remove(checkBox);
+            }
+            refreshToDoListBox();
         }
     }
 }

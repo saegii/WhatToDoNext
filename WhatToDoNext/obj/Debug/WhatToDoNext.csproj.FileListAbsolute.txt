@@ -13,5 +13,5 @@ D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.csproj.GenerateR
 D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.csproj.CoreCompileInputs.cache
 D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.exe
 D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.pdb
-D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\TaskDetail.g.cs
-D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\TaskDetail.baml
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\View\TaskDetail.g.cs
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\View\TaskDetail.baml

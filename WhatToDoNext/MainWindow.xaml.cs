@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Drawing;
 using System.Windows.Input;
+using WhatToDoNext.View;
 
 namespace WhatToDoNext
 {
@@ -12,39 +13,35 @@ namespace WhatToDoNext
     public partial class MainWindow : Window
     {
         private List<CheckBox> checkBoxes = new List<CheckBox>();
-        private Engine engine;
+        private List<Task> tasks = new List<Task>();
 
         public MainWindow()
         {
             InitializeComponent();
-            engine = new Engine(toDoListBox);
         }
 
         private void addToDoButton_Click(object sender, RoutedEventArgs e)
         {
-            String task = addToDoTextBox.Text;
-            if (!task.Equals(""))
+            String text = addToDoTextBox.Text;
+            if (!text.Equals(""))
             {
-                ToDo toDo = new ToDo();
-                toDo.Name = task;
-                addToCheckBox(toDo);
+                Task task = new Task();
+                task.Name = text;
+                addToCheckBox(task);
                 addToDoTextBox.Text = "";
             }
         }
 
-        private void addToCheckBox(ToDo toDo)
+        private void addToCheckBox(Task task)
         {
-            CheckBox checkBox = new CheckBox();
-            checkBox.Content = toDo.Name;
-            // checkBox.Click += new RoutedEventHandler(checkBox_Changed);
-            checkBox.MouseDoubleClick += new MouseButtonEventHandler(openTask);
-            checkBoxes.Add(checkBox);
+            tasks.Add(task);
+            task.MouseDoubleClick += new MouseButtonEventHandler(openTask);
             refreshToDoListBox();
         }
 
         private void openTask(object sender, MouseButtonEventArgs e)
         {
-            TaskDetail taskDetail = new TaskDetail();
+            TaskDetail taskDetail = new TaskDetail(sender);
             taskDetail.Show();
         }
 
@@ -55,27 +52,32 @@ namespace WhatToDoNext
 
         private void deleteItemButton_Click(object sender, RoutedEventArgs e)
         {
-            List<CheckBox> checkBoxesToDelete = new List<CheckBox>();
-            foreach(CheckBox checkBox in checkBoxes)
+            List<Task> tasksToDelete = new List<Task>();
+
+            foreach(Task task in tasks)
             {
-                if(checkBox.IsChecked == true)
+                if(task.IsChecked == true)
                 {
-                    checkBoxesToDelete.Add(checkBox);
+                    tasksToDelete.Add(task);
                 }
             }
-            foreach(CheckBox checkBox in checkBoxesToDelete)
+
+            foreach(Task task in tasksToDelete)
             {
-                checkBoxes.Remove(checkBox);
+                tasks.Remove(task);
             }
+
             refreshToDoListBox();
         }
 
         public void refreshToDoListBox()
         {
             toDoListBox.Items.Clear();
-            foreach (CheckBox checkBox in checkBoxes)
+
+            foreach (Task task in tasks)
             {
-                toDoListBox.Items.Add(checkBox);
+                task.Content = task.Name;
+                toDoListBox.Items.Add(task);
             }
         }
     }

@@ -7,10 +7,15 @@ using System.Windows.Controls;
 
 namespace WhatToDoNext
 {
-    class ToDo
+    class Task : CheckBox
     {
         public String Name { get; set; }
-        public bool IsDone { get; set; }
 
+        public static int Id { get; set; }
+
+        public Task()
+        {
+            Id++;
+        }
     }
 }

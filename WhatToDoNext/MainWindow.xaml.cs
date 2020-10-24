@@ -4,19 +4,20 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Drawing;
+using System.Windows.Input;
 
 namespace WhatToDoNext
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    
     public partial class MainWindow : Window
     {
         private List<CheckBox> checkBoxes = new List<CheckBox>();
+        private Engine engine;
 
         public MainWindow()
         {
             InitializeComponent();
+            engine = new Engine(toDoListBox);
         }
 
         private void addToDoButton_Click(object sender, RoutedEventArgs e)
@@ -35,23 +36,21 @@ namespace WhatToDoNext
         {
             CheckBox checkBox = new CheckBox();
             checkBox.Content = toDo.Name;
-            checkBox.Click += new RoutedEventHandler(checkBox_Changed);
+            // checkBox.Click += new RoutedEventHandler(checkBox_Changed);
+            checkBox.MouseDoubleClick += new MouseButtonEventHandler(openTask);
             checkBoxes.Add(checkBox);
             refreshToDoListBox();
+        }
+
+        private void openTask(object sender, MouseButtonEventArgs e)
+        {
+            TaskDetail taskDetail = new TaskDetail();
+            taskDetail.Show();
         }
 
         private void checkBox_Changed(object sender, RoutedEventArgs e)
         {
             // strikethroug or colorchange comes here!
-        }
-
-        private void refreshToDoListBox()
-        {
-            toDoListBox.Items.Clear();
-            foreach(CheckBox checkBox in checkBoxes)
-            {
-                toDoListBox.Items.Add(checkBox);
-            }
         }
 
         private void deleteItemButton_Click(object sender, RoutedEventArgs e)
@@ -69,6 +68,15 @@ namespace WhatToDoNext
                 checkBoxes.Remove(checkBox);
             }
             refreshToDoListBox();
+        }
+
+        public void refreshToDoListBox()
+        {
+            toDoListBox.Items.Clear();
+            foreach (CheckBox checkBox in checkBoxes)
+            {
+                toDoListBox.Items.Add(checkBox);
+            }
         }
     }
 }

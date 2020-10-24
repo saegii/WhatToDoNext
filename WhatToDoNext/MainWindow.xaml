@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WhatToDoNext"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="WhatToDoNext" Height="450" Width="800">
+    <Grid Margin="10px">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="*"/>
+            <RowDefinition  Height="4*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="1" x:Name="addToDoButton">+</Button>
+            <TextBox Grid.Column="0" x:Name="addToDoTextBox"></TextBox>
+        </Grid>
+
+        <ListBox x:Name="toDoListBox" Grid.Row="1"></ListBox>
     </Grid>
 </Window>

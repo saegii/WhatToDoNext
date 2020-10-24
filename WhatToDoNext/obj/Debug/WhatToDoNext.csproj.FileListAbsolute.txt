@@ -1,0 +1,15 @@
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\bin\Debug\WhatToDoNext.exe.config
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\bin\Debug\WhatToDoNext.exe
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\bin\Debug\WhatToDoNext.pdb
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.csprojAssemblyReference.cache
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\MainWindow.g.cs
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\App.g.cs
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext_MarkupCompile.cache
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext_MarkupCompile.lref
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\MainWindow.baml
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.g.resources
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.Properties.Resources.resources
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.csproj.GenerateResource.cache
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.csproj.CoreCompileInputs.cache
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.exe
+D:\vsworkspace\WhatToDoNext\WhatToDoNext\obj\Debug\WhatToDoNext.pdb

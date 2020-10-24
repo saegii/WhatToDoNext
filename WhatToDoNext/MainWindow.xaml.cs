@@ -20,9 +20,25 @@ namespace WhatToDoNext
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void addToDoButton_Click(object sender, RoutedEventArgs e)
+        {
+            String text = addToDoTextBox.Text;
+            if (!text.Equals(""))
+            {
+                ToDo toDo = new ToDo(addToDoTextBox.Text);
+                addToDoToListBox(toDo);
+            }
+        }
+
+        private void addToDoToListBox(ToDo toDo)
+        {
+            toDoListBox.Items.Add(toDo.getName());
         }
     }
 }
